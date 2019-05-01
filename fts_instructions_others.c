@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:58:29 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 13:43:07 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/01 19:40:48 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,14 @@ void			ft_aff(t_all *a, t_process *p)
 	int			value;
 
 	value = 0;
-	if (a->ar[(p->pc + 1) % M_S == R] && a->ar[(p->pc + 2) % M_S] > 0
-		&& a->ar[(p->pc + 2) % M_S] <= 16)
+	a->encode = a->ar[(p->pc + 1) % M_S];
+	if (a->encode != R)
+	{
+		p->pc += 2;
+		p->pc %= M_S;
+		return ;
+	}
+	if (a->ar[(p->pc + 2) % M_S] > 0 && a->ar[(p->pc + 2) % M_S] <= 16)
 	{
 		value = p->r[a->ar[(p->pc + 2) % M_S] - 1];
 		value %= 256;

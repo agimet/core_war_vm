@@ -6,28 +6,11 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 12:44:22 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 15:26:25 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/01 19:14:22 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-int			ft_get_types(int type)
-{
-	if (type == RRR)
-		return (5);
-	if (type == DDR)
-		return (11);
-	if (type == IIR)
-		return (7);
-	if (type == DIR || type == IDR)
-		return (9);
-	if (type == RIR || type == IRR)
-		return (6);
-	if (type == RDR || type == DRR)
-		return (8);
-	return (-1);
-}
 
 int			ft_get_args(t_u1 arena[M_S], int pc, int size)
 {

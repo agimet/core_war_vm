@@ -6,11 +6,29 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:55:11 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 15:40:52 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/01 19:49:02 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+int			ft_test_encode_ld_family(int *pc, t_u1 encode, int which)
+{
+	if (which == 1 && encode != IR && encode != DR)
+	{
+		*pc += 2;
+		*pc %= M_S;
+		return (0);
+	}
+	if (which == 2 && encode != RRR && encode != RDR && encode != DDR
+		&& encode != DRR && encode != IDR && encode != IRR)
+	{
+		*pc += 2;
+		*pc %= M_S;
+		return (0);
+	}
+	return (1);
+}
 
 void		ft_ld(t_all *a, t_process *p)
 {
@@ -20,7 +38,7 @@ void		ft_ld(t_all *a, t_process *p)
 	a->args = 0;
 	s = 2;
 	a->encode = a->ar[(p->pc + 1) % M_S];
-	if (a->encode != IR && a->encode != DR)
+	if (!ft_test_encode_ld_family(&(p->pc), a->encode, 1))
 		return ;
 	ft_get_type(a->encode, &(a->type), &(a->size), 1);
 	while (a->args < 3)
@@ -45,7 +63,7 @@ void		ft_lld(t_all *a, t_process *p)
 	a->args = 0;
 	s = 2;
 	a->encode = a->ar[(p->pc + 1) % M_S];
-	if (a->encode != IR && a->encode != DR)
+	if (!ft_test_encode_ld_family(&(p->pc), a->encode, 1))
 		return ;
 	ft_get_type(a->encode, &(a->type), &(a->size), 1);
 	while (a->args < 3)
@@ -74,8 +92,7 @@ void		ft_ldi(t_all *a, t_process *p)
 	a->args = 0;
 	s = 2;
 	a->encode = a->ar[(p->pc + 1) % M_S];
-	if (a->encode != RRR && a->encode != RDR && a->encode != DDR
-		&& a->encode != DRR && a->encode != IDR && a->encode != IRR)
+	if (!ft_test_encode_ld_family(&(p->pc), a->encode, 2))
 		return ;
 	ft_get_type(a->encode, &(a->type), &(a->size), 0);
 	while (a->args < 3)
@@ -100,8 +117,7 @@ void		ft_lldi(t_all *a, t_process *p)
 	a->args = 0;
 	s = 2;
 	a->encode = a->ar[(p->pc + 1) % M_S];
-	if (a->encode != RRR && a->encode != RDR && a->encode != DDR
-		&& a->encode != DRR && a->encode != IDR && a->encode != IRR)
+	if (!ft_test_encode_ld_family(&(p->pc), a->encode, 2))
 		return ;
 	ft_get_type(a->encode, &(a->type), &(a->size), 0);
 	while (a->args < 3)

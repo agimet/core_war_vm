@@ -6,20 +6,34 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:56:30 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 13:09:23 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/01 19:48:32 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int		ft_test_encode_and_or_xor(t_u1 encode)
+int		ft_test_encode_add_sub(int *pc, t_u1 encode)
+{
+	if (encode != RRR)
+	{
+		*pc += 2;
+		*pc %= M_S;
+		return (0);
+	}
+	return (1);
+}
+
+int		ft_test_encode_and_or_xor(int *pc, t_u1 encode)
 {
 	if (encode != RRR && encode != RIR && encode != RDR && encode != DRR
 		&& encode != DDR && encode != DIR && encode != IRR && encode != IIR
 		&& encode != IDR)
+	{
+		*pc += 2;
+		*pc %= M_S;
 		return (0);
-	else
-		return (1);
+	}
+	return (1);
 }
 
 void	ft_add_sub(t_all *a, t_process *p)
@@ -30,7 +44,7 @@ void	ft_add_sub(t_all *a, t_process *p)
 	a->args = 0;
 	s = 2;
 	a->encode = a->ar[(p->pc + 1) % M_S];
-	if (a->encode != RRR)
+	if (!ft_test_encode_add_sub(&(p->pc), a->encode))
 		return ;
 	ft_get_type(a->encode, &(a->type), &(a->size), 0);
 	while (a->args < 3)
@@ -58,7 +72,7 @@ void	ft_and_or_xor(t_all *a, t_process *p)
 	a->args = 0;
 	s = 2;
 	a->encode = a->ar[(p->pc + 1) % M_S];
-	if (!ft_test_encode_and_or_xor(a->encode))
+	if (!ft_test_encode_and_or_xor(&(p->pc), a->encode))
 		return ;
 	ft_get_type(a->encode, &(a->type), &(a->size), 1);
 	while (a->args < 3)
