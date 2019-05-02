@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 10:40:54 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 14:06:19 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/02 15:05:18 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int			main(int ac, char **av)
 	if (ac == 1)
 		return (ft_error("./corewar [-dump nb] [-n nb] <champ.cor> .."));
 	ft_init_struct(&a);
+	if (a == NULL)
+		(ft_error("Malloc NULL"));
 	if (!ft_valid_args(a, av, ac))
 		return (ft_free_all(a));
 	if (!ft_read(a, fd, av))

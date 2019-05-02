@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 14:49:53 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 15:39:43 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/02 16:41:33 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ int				ft_check_dump_param(t_all *a, char **av)
 {
 	int			i;
 
-	i = 0;
+	i = -1;
 	if (av[1] && av[1][0] == '-' && av[1][1] == 'd'
 		&& av[1][2] == 'u' && av[1][3] == 'm' && av[1][4] == 'p')
 	{
 		if (av[1][5])
 			return (ft_error("Wrong -dump param."));
-		while (av[2] && av[2][i++])
+		while (av[2] && av[2][++i])
 		{
-			if (av[2][i] && !ft_isdigit(av[2][i]))
+			if (av[2][i] && av[2][i] == '-' && !ft_isdigit(av[2][i]))
 				return (ft_error("Need number with -dump param."));
 		}
 		if (av[2])

@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 12:06:12 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 12:55:16 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/02 16:45:06 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void			ft_load_champions(t_all *a)
 	ft_bzero(a->whose, sizeof(a->whose));
 	ft_bzero(a->ar, sizeof(a->ar));
 	ft_memset(&a->whose, 0, M_S);
+	if (*(int*)a->pl[i].size_instru > CHAMP_MAX_SIZE)
+		exit(2);
 	while (i < a->nb_pl)
 	{
 		pos = a->pl[i].pos;
