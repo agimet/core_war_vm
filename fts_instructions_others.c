@@ -6,13 +6,13 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:58:29 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/03 14:52:13 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/03 15:48:12 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void			ft_live(t_all *a, t_process *p, int val[0])
+void			ft_live(t_all *a, t_process *p, int val[0]) // A revoir les 4 if
 {
 	p->nb_live++;
 	a->nb_live_call++;
