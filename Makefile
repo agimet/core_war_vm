@@ -6,7 +6,7 @@
 #    By: agimet <agimet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/31 14:51:09 by agimet            #+#    #+#              #
-#    Updated: 2019/05/02 16:44:45 by agimet           ###   ########.fr        #
+#    Updated: 2019/05/03 15:03:10 by agimet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,9 @@ SRCS = main.c \
 		fts_init_free_struct.c \
 		fts_dump_memory.c \
 		fts_lib.c \
-		fts_lib2.c \
-		fts_lib3.c
+		fts_lib2.c
 OBJ = $(SRCS:.c=.o)
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -O3 -Wall -Wextra -Werror
 
 $(EXEC): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^

@@ -6,19 +6,11 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 12:18:12 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 13:47:18 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/03 15:01:08 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-int		ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
-}
 
 void	ft_putchar(char c)
 {

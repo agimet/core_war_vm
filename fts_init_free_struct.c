@@ -6,11 +6,25 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 13:11:00 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 12:56:44 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/03 14:49:57 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+void			ft_bzero(void *s, size_t n)
+{
+	size_t		i;
+	char		*b;
+
+	b = (char *)s;
+	i = 0;
+	while (i < n && n != 0)
+	{
+		b[i] = '\0';
+		i++;
+	}
+}
 
 void			ft_init_struct(t_all **a)
 {

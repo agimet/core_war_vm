@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 14:49:53 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/02 16:41:33 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/03 15:01:01 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int				ft_check_dump_param(t_all *a, char **av)
 			return (ft_error("Wrong -dump param."));
 		while (av[2] && av[2][++i])
 		{
-			if (av[2][i] && av[2][i] == '-' && !ft_isdigit(av[2][i]))
+			if (av[2][i] && (av[2][i] == '-'
+				|| (av[2][i] < '0' || av[2][i] > '9')))
 				return (ft_error("Need number with -dump param."));
 		}
 		if (av[2])
@@ -64,7 +65,7 @@ int				ft_check_num_players(t_all *a, char **av, int *i)
 			return (ft_error("Wrong -n param."));
 		while (av[*i + 1][j])
 		{
-			if (!ft_isdigit(av[*i + 1][j]))
+			if (av[*i + 1][j] < '0' || av[*i + 1] > '0')
 				return (ft_error("Need number between 1 and 4 with -n param."));
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 12:13:18 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 13:47:06 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/03 15:03:02 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,24 +71,33 @@ void			*ft_memset(void *s, int c, size_t n)
 	return (d);
 }
 
-void			ft_bzero(void *s, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	size_t		i;
-	char		*b;
+	int i;
 
-	b = (char *)s;
 	i = 0;
-	while (i < n && n != 0)
-	{
-		b[i] = '\0';
+	while (s[i])
 		i++;
-	}
+	return (i);
 }
 
-int				ft_isprint(int c)
+void	ft_putnbr(int nb)
 {
-	if ((c >= 32) && (c <= 126))
-		return (1);
+	unsigned int n;
+
+	n = nb;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		n = nb * -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 	else
-		return (0);
+	{
+		ft_putchar(n + '0');
+	}
 }
