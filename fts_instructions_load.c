@@ -6,14 +6,14 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:55:11 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/03 14:45:37 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 14:12:19 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
 
-void		ft_ld(t_all *a, t_process *p, int val[2])
+void		ft_ld(t_all *a, t_process *p, int val[3])
 {
 	int pos;
 
@@ -23,7 +23,7 @@ void		ft_ld(t_all *a, t_process *p, int val[2])
 	p->pc = (p->pc + pos + 1) % M_S;
 }
 
-void		ft_lld(t_all *a, t_process *p, int val[2])
+void		ft_lld(t_all *a, t_process *p, int val[3])
 {
 	int pos;
 
@@ -37,7 +37,7 @@ void		ft_lld(t_all *a, t_process *p, int val[2])
 	p->pc = (p->pc + pos + 1) % M_S;
 }
 
-void		ft_ldi(t_all *a, t_process *p, int val[2])
+void		ft_ldi(t_all *a, t_process *p, int val[3])
 {
 	int pos;
 
@@ -47,7 +47,7 @@ void		ft_ldi(t_all *a, t_process *p, int val[2])
 	p->pc = (p->pc + pos + 1) % M_S;
 }
 
-void		ft_lldi(t_all *a, t_process *p, int val[2])
+void		ft_lldi(t_all *a, t_process *p, int val[3])
 {
 	int pos;
 
@@ -57,21 +57,3 @@ void		ft_lldi(t_all *a, t_process *p, int val[2])
 	p->carry = (p->r[a->ar[(p->pc + pos) % M_S] - 1] == 0) ? 1 : 0;
 	p->pc = (p->pc + pos + 1) % M_S;
 }
-
-// int			ft_test_encode_ld_family(int *pc, t_u1 encode, int which)
-// {
-// 	if (which == 1 && encode != IR && encode != DR)
-// 	{
-// 		*pc += 2;
-// 		*pc %= M_S;
-// 		return (0);
-// 	}
-// 	if (which == 2 && encode != RRR && encode != RDR && encode != DDR
-// 		&& encode != DRR && encode != IDR && encode != IRR)
-// 	{
-// 		*pc += 2;
-// 		*pc %= M_S;
-// 		return (0);
-// 	}
-// 	return (1);
-// }

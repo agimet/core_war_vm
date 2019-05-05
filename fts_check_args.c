@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 14:49:53 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:07:52 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 14:08:06 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int				ft_check_num_players(t_all *a, char **av, int *i)
 			return (ft_error("Wrong -n param."));
 		while (av[*i + 1][j])
 		{
-			if (av[*i + 1][j] < '0' || av[*i + 1] > '0')
+			if (av[*i + 1][j] < '0' || av[*i + 1][j] > '0')
 				return (ft_error("Need number between 1 and 4 with -n param."));
 			j++;
 		}

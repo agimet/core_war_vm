@@ -6,13 +6,13 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:58:29 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:51:55 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 14:12:50 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void			ft_live(t_all *a, t_process *p, int val[0]) // A revoir les 4 if
+void			ft_live(t_all *a, t_process *p, int val[3]) // A revoir les 4 if
 {
 	p->nb_live++;
 	a->nb_live_call++;
@@ -36,7 +36,7 @@ void			ft_live(t_all *a, t_process *p, int val[0]) // A revoir les 4 if
 	p->pc = (p->pc + 5) % M_S;
 }
 
-void			ft_fork(t_all *a, t_process *p, int val[0])
+void			ft_fork(t_all *a, t_process *p, int val[3])
 {
 	t_process	*new;
 	int			i;
@@ -63,7 +63,7 @@ void			ft_fork(t_all *a, t_process *p, int val[0])
 	p->pc = (p->pc + 3) % M_S;
 }
 
-void			ft_lfork(t_all *a, t_process *p, int val[2])
+void			ft_lfork(t_all *a, t_process *p, int val[3])
 {
 	t_process	*new;
 	int			i;
@@ -90,7 +90,7 @@ void			ft_lfork(t_all *a, t_process *p, int val[2])
 	p->pc = (p->pc + 3) % M_S;
 }
 
-void			ft_aff(t_all *a, t_process *p, int val[2])
+void			ft_aff(t_all *a, t_process *p, int val[3])
 {
 	a->encode = a->ar[(p->pc + 1) % M_S];
 	if (a->encode != R)
@@ -113,7 +113,7 @@ void			ft_aff(t_all *a, t_process *p, int val[2])
 	p->pc = (p->pc + 3) % M_S;
 }
 
-void			ft_zjmp(t_all *a, t_process *p, int val[2])
+void			ft_zjmp(t_all *a, t_process *p, int val[3])
 {
 	if (p->carry == 1)
 	{

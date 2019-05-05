@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:05:38 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:52:20 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 15:22:23 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void			ft_exec_instructions(t_all *a)
 			p->pc = ((p->pc + 1) % M_S);
 		else if (p->cycle_before_exec == 0)
 		{
-			g_op_tab[p->next_instruction].instr(a, p);
+			ft_which_instru(a, p);
 			p->cycle_before_exec = -1;
 		}
 		if (p->cycle_before_exec != -1)

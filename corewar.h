@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:04:46 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:56:21 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 14:11:37 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,19 +150,19 @@ int							ft_free_all(t_all *a);
 void						ft_init_arena(t_all *a);
 void						ft_init_struct(t_all **a);
 int							ft_valid_args(t_all *a, char **av, int ac);
-void						ft_live(t_all *a, t_process *p, int val[2]);
-void						ft_ld(t_all *a, t_process *p, int val[2]);
-void						ft_st(t_all *a, t_process *p, int val[2]);
-void						ft_add_sub(t_all *a, t_process *p, int val[2]);
-void						ft_and_or_xor(t_all *a, t_process *p, int val[2]);
-void						ft_zjmp(t_all *a, t_process *p, int val[2]);
-void						ft_ldi(t_all *a, t_process *p, int val[2]);
-void						ft_sti(t_all *a, t_process *p, int val[2]);
-void						ft_fork(t_all *a, t_process *p, int val[2]);
-void						ft_lld(t_all *a, t_process *p, int val[2]);
-void						ft_lldi(t_all *a, t_process *p, int val[2]);
-void						ft_lfork(t_all *a, t_process *p, int val[2]);
-void						ft_aff(t_all *a, t_process *p, int val[2]);
+void						ft_live(t_all *a, t_process *p, int val[3]);
+void						ft_ld(t_all *a, t_process *p, int val[3]);
+void						ft_st(t_all *a, t_process *p, int val[3]);
+void						ft_add_sub(t_all *a, t_process *p, int val[3]);
+void						ft_and_or_xor(t_all *a, t_process *p, int val[3]);
+void						ft_zjmp(t_all *a, t_process *p, int val[3]);
+void						ft_ldi(t_all *a, t_process *p, int val[3]);
+void						ft_sti(t_all *a, t_process *p, int val[3]);
+void						ft_fork(t_all *a, t_process *p, int val[3]);
+void						ft_lld(t_all *a, t_process *p, int val[3]);
+void						ft_lldi(t_all *a, t_process *p, int val[3]);
+void						ft_lfork(t_all *a, t_process *p, int val[3]);
+void						ft_aff(t_all *a, t_process *p, int val[3]);
 int							ft_real_player(int nb_pl, int value);
 void						ft_winner(t_all *a);
 void						ft_wrong_reg(int *pc, t_u1 size[3]);
@@ -174,10 +174,12 @@ int							ft_get_value(t_all *a, int w, t_process *p, int s);
 void						ft_get_type(t_u1 e, t_u1 (*t)[3],
 								t_u1 (*s)[3], int m);
 int							ft_atoi(const char *str);
+void						ft_putstr_fd(char const *s, int fd);
 void						ft_bzero(void *s, size_t n);
 void						ft_putchar_fd(char c, int fd);
 void						ft_putnbr(int nb);
 size_t						ft_strlen(const char *s);
+void						ft_which_instru(t_all *a, t_process *p);
 
 extern t_op					g_op_tab[17];
 
