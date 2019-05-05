@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:05:38 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 19:30:50 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:52:20 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,13 +132,13 @@ void			ft_lets_play(t_all *a)
 	{
 		if (a->last_alive == 0)
 		{
-			ft_putstr("No one lived.\n");
+			ft_putstr_fd("No one lived.\n", 1);
 			return ;
 		}
-		ft_putstr("Champion ");
+		ft_putstr_fd("Champion ", 1);
 		ft_putnbr(a->last_alive);
-		ft_putstr(" alias ");
+		ft_putstr_fd(" alias ", 1);
 		ft_winner(a);
-		ft_putstr(" has won !\n");
+		ft_putstr_fd(" has won !\n", 1);
 	}
 }

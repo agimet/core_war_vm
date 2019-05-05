@@ -6,28 +6,11 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 12:13:18 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/03 15:03:02 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:55:06 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-void			*ft_memcpy(void *dest, const void *src, size_t len)
-{
-	size_t		i;
-	char		*cdest;
-	char		*csrc;
-
-	cdest = (char *)dest;
-	csrc = (char *)src;
-	i = 0;
-	while (i < len && dest != src)
-	{
-		cdest[i] = csrc[i];
-		i++;
-	}
-	return (dest);
-}
 
 int				ft_atoi(const char *str)
 {
@@ -56,21 +39,6 @@ int				ft_atoi(const char *str)
 	return (x * i);
 }
 
-void			*ft_memset(void *s, int c, size_t n)
-{
-	size_t		i;
-	char		*d;
-
-	d = (char *)s;
-	i = 0;
-	while (i < n)
-	{
-		d[i] = (unsigned char)c;
-		i++;
-	}
-	return (d);
-}
-
 size_t	ft_strlen(const char *s)
 {
 	int i;
@@ -88,7 +56,7 @@ void	ft_putnbr(int nb)
 	n = nb;
 	if (nb < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', 1);
 		n = nb * -1;
 	}
 	if (n >= 10)
@@ -97,7 +65,25 @@ void	ft_putnbr(int nb)
 		ft_putnbr(n % 10);
 	}
 	else
+		ft_putchar_fd(n + '0', 1);
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+void	ft_putstr_fd(char const *s, int fd)
+{
+	int i;
+
+	i = 0;
+	if (s != NULL && fd != 0)
 	{
-		ft_putchar(n + '0');
+		while (s[i])
+		{
+			ft_putchar_fd(s[i], fd);
+			i++;
+		}
 	}
 }

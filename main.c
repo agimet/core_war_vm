@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 10:40:54 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/03 15:48:44 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:54:42 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int			ft_error(char *str)
 {
-	ft_putendl_fd(str, 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\n", 2);
 	return (0);
 }
 

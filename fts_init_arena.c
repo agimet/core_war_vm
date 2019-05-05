@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 12:06:12 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/03 14:50:19 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:29:33 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,27 @@
 void			ft_load_champions(t_all *a)
 {
 	int			i;
+	int			j;
 	int			pos;
 
 	i = -1;
 	pos = 0;
+	j = -1;
 	while (++i < M_S)
 	{
 		a->whose[i] = 0;
 		a->ar[i] = 0;
 	}
-	if (*(int*)a->pl[i].size_instru > CHAMP_MAX_SIZE)
-		exit(2);
 	while (i < a->nb_pl)
 	{
 		pos = a->pl[i].pos;
-		ft_memset(&(a->whose[pos]), a->pl[i].num_player,
-				*(int*)(a->pl[i].size_instru));
-		ft_memcpy(&(a->ar[pos]), a->pl[i].champion, CHAMP_MAX_SIZE);
+		while (++j < CHAMP_MAX_SIZE)
+		{
+			a->ar[pos + j] = a->pl[j].champion;
+			if (j < a->pl[i].size_instru)
+				a->whose[pos + j] = a->pl[i].num_player;
+		}
+		j = -1;
 		i++;
 	}
 }

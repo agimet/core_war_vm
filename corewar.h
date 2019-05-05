@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:04:46 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/03 14:27:06 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:56:21 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,15 +174,8 @@ int							ft_get_value(t_all *a, int w, t_process *p, int s);
 void						ft_get_type(t_u1 e, t_u1 (*t)[3],
 								t_u1 (*s)[3], int m);
 int							ft_atoi(const char *str);
-int							ft_isprint(int c);
-int							ft_isdigit(int c);
-void						*ft_memcpy(void *dest, const void *src, size_t len);
-void						*ft_memset(void *s, int c, size_t n);
 void						ft_bzero(void *s, size_t n);
-void						ft_putchar(char c);
 void						ft_putchar_fd(char c, int fd);
-void						ft_putendl_fd(char const *s, int fd);
-void						ft_putstr(char const *s);
 void						ft_putnbr(int nb);
 size_t						ft_strlen(const char *s);
 

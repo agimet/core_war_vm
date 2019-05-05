@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:59:54 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 13:52:36 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:53:23 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ int					ft_real_player(int nb_pl, int value)
 void				ft_winner(t_all *a)
 {
 	if (a->pl[0].num_player == a->last_alive)
-		ft_putstr((char *)a->pl[0].name);
+		ft_putstr_fd((char *)a->pl[0].name, 1);
 	if (a->pl[1].num_player == a->last_alive)
-		ft_putstr((char *)a->pl[1].name);
+		ft_putstr_fd((char *)a->pl[1].name, 1);
 	if (a->pl[2].num_player == a->last_alive)
-		ft_putstr((char *)a->pl[2].name);
+		ft_putstr_fd((char *)a->pl[2].name, 1);
 	if (a->pl[3].num_player == a->last_alive)
-		ft_putstr((char *)a->pl[3].name);
+		ft_putstr_fd((char *)a->pl[3].name, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 13:27:56 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/01 15:30:28 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/05 13:49:40 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 void			ft_color(int pc, int pl)
 {
 	if (pc == 1 && pl == 0)
-		ft_putstr("\x1B[47m");
+		ft_putstr_fd("\x1B[47m", 1);
 	if (pc == 1 && pl == 1)
-		ft_putstr("\x1B[42m");
+		ft_putstr_fd("\x1B[42m", 1);
 	if (pc == 1 && pl == 2)
-		ft_putstr("\x1B[44m");
+		ft_putstr_fd("\x1B[44m", 1);
 	if (pc == 1 && pl == 3)
-		ft_putstr("\x1B[41m");
+		ft_putstr_fd("\x1B[41m", 1);
 	if (pc == 1 && pl == 4)
-		ft_putstr("\x1B[46m");
+		ft_putstr_fd("\x1B[46m", 1);
 	if (pc == 0 && pl == 1)
-		ft_putstr("\x1B[32m");
+		ft_putstr_fd("\x1B[32m", 1);
 	if (pc == 0 && pl == 2)
-		ft_putstr("\x1B[34m");
+		ft_putstr_fd("\x1B[34m", 1);
 	if (pc == 0 && pl == 3)
-		ft_putstr("\x1B[31m");
+		ft_putstr_fd("\x1B[31m", 1);
 	if (pc == 0 && pl == 4)
-		ft_putstr("\x1B[36m");
+		ft_putstr_fd("\x1B[36m", 1);
 }
 
 void			ft_dec_to_hex(int x, int pl, int pc, int mode)
@@ -59,8 +59,8 @@ void			ft_dec_to_hex(int x, int pl, int pc, int mode)
 		i = 0;
 	}
 	ft_color(pc, pl);
-	ft_putstr(tab);
-	ft_putstr("\x1B[0:49m");
+	ft_putstr_fd(tab, 1);
+	ft_putstr_fd("\x1B[0:49m", 1);
 }
 
 void			ft_dump_bis(t_all *a, t_process *tmp, int line, int count)
@@ -79,13 +79,13 @@ void			ft_dump_bis(t_all *a, t_process *tmp, int line, int count)
 		ft_dec_to_hex(a->ar[i], a->whose[i], a->dump, 0);
 		a->dump = 0;
 		tmp = a->process;
-		(i + 1 == M_S) ? ft_putstr(" \n") : ft_putchar(' ');
+		(i + 1 == M_S) ? ft_putstr_fd(" \n", 1) : ft_putstr_fd(" ", 1);
 		if (i + 1 != M_S && count == 63)
 		{
 			line += 64;
-			ft_putstr("\n0x");
+			ft_putstr_fd("\n0x", 1);
 			ft_dec_to_hex(line, count = 0, 0, 1);
-			ft_putstr(" : ");
+			ft_putstr_fd(" : ", 1);
 		}
 		else
 			count++;
@@ -105,8 +105,8 @@ void			ft_dump(t_all *a)
 	pc = 0;
 	count = 0;
 	line = 0;
-	ft_putstr("0x");
+	ft_putstr_fd("0x", 1);
 	ft_dec_to_hex(line, 0, 0, 1);
-	ft_putstr(" : ");
+	ft_putstr_fd(" : ", 1);
 	ft_dump_bis(a, tmp, line, count);
 }
