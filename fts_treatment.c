@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:15:58 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/06 16:08:22 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/06 16:14:02 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int		ft_test_code(int x, t_process *p)
 		&& x != DRR && x != DDR && x != DIR && x != IRR && x != IIR && x != IDR)
 		encode = 0;
 	if (encode == 0)
+	{
 		p->pc = (p->pc + 2) % M_S;
+		p->next_instruction = 0;
+		p->cycle_before_exec = -1;
+	}
 	return (encode);
 }
 

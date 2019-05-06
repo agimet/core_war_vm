@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 12:44:22 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 16:54:43 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/06 16:15:33 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,11 @@ int			ft_get_value(t_all *a, int pos, t_process *proc, int spec)
 
 	ret = 0;
 	if (a->type[a->args] == T_REG)
-	{
-		ft_putstr_fd("1\n", 1);
 		return (proc->r[a->ar[(pos) % M_S] - 1]);
-	}
 	if (a->type[a->args] == T_DIR)
-	{
-		ft_putstr_fd("2\n", 1);
 		return (ft_get_args(a->ar, pos, a->size[a->args]));
-	}
 	if (a->type[a->args] == T_IND)
 	{
-		ft_putstr_fd("3\n", 1);
 		ret = ft_get_args(a->ar, pos, a->size[a->args]);
 		if (spec == 0)
 			return (ret);
