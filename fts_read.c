@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:58:44 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/06 16:47:42 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/06 17:37:31 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,23 @@ int			ft_read_magic_or_instruc_size(t_all *a, int fd, int j, int mode)
 	return (1);
 }
 
-int			ft_read_each_part(t_all *a, int fd, int j, int part) // CHERCHE UNE COMPARAISON POSSIBLE AVEC INSTRU SIZE ET CHAMP
+int			ft_read_each_part(t_all *a, int fd, int j, int part) // CHERCHE UNE COMPARAISON POSSIBLE AVEC INSTRU SIZE ET CHAMP // A TESTER EN FORCE
 {
 	int i;
+	int ok;
 	int ret;
 
 	i = -1;
 	ret = 0;
+	ok = 0;
 	while (++i < part)
 	{
 		part == PROG_NAME_LENGTH ? ret = read(fd, &(a->pl[j].name[i]), 1) : (0);
 		part ==	COMMENT_LENGTH ? ret = read(fd, &(a->pl[j].comment[i]), 1) : (0);
 		part == CHAMP_MAX_SIZE ? ret = read(fd, &(a->pl[j].champion[i]), 1) : (0);
-		if (ret == -1 || (ret == 0 && i < part && part != CHAMP_MAX_SIZE))
+		if (part == CHAMP_MAX_SIZE && ret == 0 && i < part && i == *(int*)a->pl[j].size_instru)
+			ok = 1;
+		if (ret == -1 || (ret == 0 && (i < part || i > part) && ok == 0))
 		{
 			part == PROG_NAME_LENGTH ? ft_putstr_fd("HEADER : ", 2) : (0);
 			part ==	COMMENT_LENGTH ? ft_putstr_fd("COMMENT : ", 2) : (0);
