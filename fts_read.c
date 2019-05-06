@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:58:44 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 15:15:53 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/06 16:06:04 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,6 @@ int			ft_read_magic_or_instruc_size(t_all *a, int fd, int j, int mode)
 				return (ft_error("Problem with instruction size."));
 		}
 	}
-	return (1);
-}
-
-int			ft_nb_ac(int n_param, int d_param)
-{
-	if ((n_param == 0 && d_param == 1) || (n_param != 0 && d_param == 0))
-		return (3);
-	else if (d_param != 0 && d_param == 1)
-		return (5);
 	return (1);
 }
 

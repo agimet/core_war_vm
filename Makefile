@@ -6,7 +6,7 @@
 #    By: agimet <agimet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/31 14:51:09 by agimet            #+#    #+#              #
-#    Updated: 2019/05/05 13:58:08 by agimet           ###   ########.fr        #
+#    Updated: 2019/05/06 15:52:48 by agimet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,12 @@ SRCS = main.c \
 OBJ = $(SRCS:.c=.o)
 CFLAGS = -O3 -Wall -Wextra -Werror
 
+
 $(EXEC): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
 all: $(EXEC)
+
 
 clean:
 	@rm -f *.o

@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:58:29 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 14:12:50 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/06 14:36:48 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,12 +115,13 @@ void			ft_aff(t_all *a, t_process *p, int val[3])
 
 void			ft_zjmp(t_all *a, t_process *p, int val[3])
 {
+	a->args = 0;
 	if (p->carry == 1)
 	{
 		val[0] = ft_get_args(a->ar, p->pc + 1, 2) % IDX_MOD;
 		p->pc = (p->pc + val[0]) % M_S;
 		if (p->pc < 0)
-			p->pc %= ((p->pc % 4096) + 4096) % M_S;
+			p->pc = ((p->pc % 4096) + 4096) % M_S;
 	}
 	else
 		p->pc = (p->pc + 3) % M_S;
