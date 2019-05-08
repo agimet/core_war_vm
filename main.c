@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 10:40:54 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:54:42 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 15:25:02 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,16 @@ int			ft_error(char *str)
 	return (0);
 }
 
-int			main(int ac, char **av)
+int			ft_prototype(int ret)
+{
+	ft_putstr_fd("./corewar [-dump nb] [-n nb] <champ.cor> -q ...\n", 1);
+	ft_putstr_fd("\t\t-n : Need to be set to each player, from 1 to 4.\n", 1);
+	ft_putstr_fd("\t\t-dump : To use before champions' name.\n", 1);
+	ft_putstr_fd("\t\t-q : To use at the end of args.\n", 1);
+	return (ret);
+}
+
+int			main(int ac, char **av) // quiet mode to set
 {
 	int		fd;
 	t_all	*a;
@@ -27,7 +36,7 @@ int			main(int ac, char **av)
 	a = NULL;
 	fd = 0;
 	if (ac == 1)
-		return (ft_error("./corewar [-dump nb] [-n nb] <champ.cor> ..."));
+		return (ft_prototype(0));
 	ft_init_struct(&a);
 	if (a == NULL)
 		(ft_error("Malloc NULL."));
