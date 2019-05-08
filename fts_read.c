@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:58:44 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/06 17:37:31 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 13:57:59 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_read_magic_or_instruc_size(t_all *a, int fd, int j, int mode)
 	return (1);
 }
 
-int			ft_read_each_part(t_all *a, int fd, int j, int part) // CHERCHE UNE COMPARAISON POSSIBLE AVEC INSTRU SIZE ET CHAMP // A TESTER EN FORCE
+int			ft_read_each_part(t_all *a, int fd, int j, int part)
 {
 	int i;
 	int ok;
@@ -91,7 +91,7 @@ int			ft_read_bis(t_all *a, int fd, int j)
 	return (1);
 }
 
-int			ft_read(t_all *a, int fd, char **av) // COMPARAISON size instruc et champ max size
+int			ft_read(t_all *a, int fd, char **av)
 {
 	int		i;
 	int		j;
