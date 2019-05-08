@@ -6,12 +6,11 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:56:30 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 14:11:57 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 14:38:44 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
 
 void	ft_add_sub(t_all *a, t_process *p, int val[3])
 {

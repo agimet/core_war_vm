@@ -6,17 +6,17 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 12:13:18 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:55:06 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 14:42:51 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int				ft_atoi(const char *str)
+int					ft_atoi(const char *str)
 {
-	long long	x;
-	int			i;
-	int			count;
+	long long		x;
+	int				i;
+	int				count;
 
 	count = 0;
 	i = 1;
@@ -39,9 +39,9 @@ int				ft_atoi(const char *str)
 	return (x * i);
 }
 
-size_t	ft_strlen(const char *s)
+size_t				ft_strlen(const char *s)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	while (s[i])
@@ -49,9 +49,9 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putnbr(int nb)
+void				ft_putnbr(int nb)
 {
-	unsigned int n;
+	unsigned int	n;
 
 	n = nb;
 	if (nb < 0)
@@ -68,14 +68,14 @@ void	ft_putnbr(int nb)
 		ft_putchar_fd(n + '0', 1);
 }
 
-void	ft_putchar_fd(char c, int fd)
+void				ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
 
-void	ft_putstr_fd(char const *s, int fd)
+void				ft_putstr_fd(char const *s, int fd)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	if (s != NULL && fd != 0)

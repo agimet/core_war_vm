@@ -6,16 +6,15 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:55:11 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/06 16:50:15 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 14:41:02 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-
 void		ft_ld(t_all *a, t_process *p, int val[3])
 {
-	int pos;
+	int		pos;
 
 	pos = 1 + a->size[0] + a->size[1] + a->size[2];
 	p->r[a->ar[(p->pc + pos) % M_S] - 1] = val[0];
@@ -25,7 +24,7 @@ void		ft_ld(t_all *a, t_process *p, int val[3])
 
 void		ft_lld(t_all *a, t_process *p, int val[3])
 {
-	int pos;
+	int		pos;
 
 	pos = 1 + a->size[0] + a->size[1] + a->size[2];
 	ft_putstr_fd("HMMMM\n", 1);
@@ -40,7 +39,7 @@ void		ft_lld(t_all *a, t_process *p, int val[3])
 
 void		ft_ldi(t_all *a, t_process *p, int val[3])
 {
-	int pos;
+	int		pos;
 
 	pos = 1 + a->size[0] + a->size[1] + a->size[2];
 	p->r[a->ar[p->pc + pos] - 1] = ft_get_args(a->ar, p->pc
@@ -50,7 +49,7 @@ void		ft_ldi(t_all *a, t_process *p, int val[3])
 
 void		ft_lldi(t_all *a, t_process *p, int val[3])
 {
-	int pos;
+	int		pos;
 
 	pos = 1 + a->size[0] + a->size[1] + a->size[2];
 	p->r[a->ar[(p->pc + pos) % M_S] - 1] = ft_get_args(a->ar, p->pc

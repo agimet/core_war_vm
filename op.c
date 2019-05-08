@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:43:01 by zaz               #+#    #+#             */
-/*   Updated: 2019/05/06 15:50:02 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 15:06:34 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_op	g_op_tab[17] =
 	{"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", 1, 1, 1, &ft_ld},
 	{"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", 1, 0, 0, &ft_st},
 	{"add", 3, {T_REG, T_REG, T_REG}, 4, 10, "addition", 1, 0, 0, &ft_add_sub},
-	{"sub", 3, {T_REG, T_REG, T_REG}, 5, 10, "soustraction", 1, 0, 0, &ft_add_sub},
+	{"sub", 3, {T_REG, T_REG, T_REG}, 5, 10, "soustrac", 1, 0, 0, &ft_add_sub},
 	{"and", 3, {T_REG | T_DIR | T_IND, T_REG | T_IND | T_DIR, T_REG}, 6, 6,
 		"et (and  r1, r2, r3   r1&r2 -> r3", 1, 1, 0, &ft_and_or_xor},
 	{"or", 3, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}, 7, 6,
