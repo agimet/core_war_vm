@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:58:29 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/06 14:36:48 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 16:19:10 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@ void			ft_live(t_all *a, t_process *p, int val[3]) // A revoir les 4 if
 	p->nb_live++;
 	a->nb_live_call++;
 	val[0] = ft_get_args(a->ar, p->pc + 1, 4);
-	if (ft_real_player(a->nb_pl, val[0]) && a->dump_param == 0)
+	if (ft_real_player(a->nb_pl, val[0]) && a->dump == 0)
 	{
 		a->last_alive = (-1 * val[0]);
-		ft_putstr_fd("\nLe joueur ", 1);
-		ft_putnbr(a->last_alive);
-		ft_putstr_fd(" alias \"", 1);
-		if (a->pl[0].num_player == -1 * val[0])
-			ft_putstr_fd((char *)a->pl[0].name, 1);
-		if (a->pl[1].num_player == -1 * val[0])
-			ft_putstr_fd((char *)a->pl[1].name, 1);
-		if (a->pl[2].num_player == -1 * val[0])
-			ft_putstr_fd((char *)a->pl[2].name, 1);
-		if (a->pl[3].num_player == -1 * val[0])
-			ft_putstr_fd((char *)a->pl[3].name, 1);
-		ft_putstr_fd("\" est en vie\n", 1);
+		if (a->quiet == 0)
+		{
+			ft_putstr_fd("\nLe joueur ", 1);
+			ft_putnbr(a->last_alive);
+			ft_putstr_fd(" alias \"", 1);
+			if (a->pl[0].num_player == -1 * val[0])
+				ft_putstr_fd((char *)a->pl[0].name, 1);
+			if (a->pl[1].num_player == -1 * val[0])
+				ft_putstr_fd((char *)a->pl[1].name, 1);
+			if (a->pl[2].num_player == -1 * val[0])
+				ft_putstr_fd((char *)a->pl[2].name, 1);
+			if (a->pl[3].num_player == -1 * val[0])
+				ft_putstr_fd((char *)a->pl[3].name, 1);
+			ft_putstr_fd("\" est en vie\n", 1);
+		}
 	}
 	p->pc = (p->pc + 5) % M_S;
 }

@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 13:27:56 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 13:49:40 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 16:17:43 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ void			ft_dump(t_all *a)
 	ft_dec_to_hex(line, 0, 0, 1);
 	ft_putstr_fd(" : ", 1);
 	ft_dump_bis(a, tmp, line, count);
+	a->dump = 1;
 }

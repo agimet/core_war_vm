@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:04:46 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/05 14:11:37 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 16:16:24 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,51 +28,28 @@
 # define DIRECT 4
 # define TEST "FF1"
 
-# define RR 80
-# define RD 96
-# define RI 112
-
 # define R 64
-# define D 128
-# define I 192
 
+# define RR 80
+# define RI 112
 # define DR 144
-# define DD 160
-# define DI 176
-
 # define IR 208
-# define ID 224
-# define II 240
 
 # define RRR 84
 # define RRD 88
-# define RRI 92
 # define RDR 100
 # define RDD 104
-# define RDI 108
 # define RIR 116
 # define RID 120
-# define RII 124
 
 # define DRR 148
-# define DRD 152
-# define DRI 156
 # define DDR 164
-# define DDD 168
 # define DDI 172
 # define DIR 180
-# define DID 184
-# define DII 188
 
 # define IRR 212
-# define IRD 216
-# define IRI 220
 # define IDR 228
-# define IDD 232
-# define IDI 236
 # define IIR 244
-# define IID 248
-# define III 252
 
 typedef unsigned char		t_u1;
 typedef unsigned int		t_u4;
@@ -107,9 +84,9 @@ typedef struct				s_all
 {
 	int						dump;
 	int						args;
+	int						quiet;
 	int						cycle;
 	int						nb_pl;
-	int						succed;
 	t_u1					encode;
 	t_u1					ar[M_S];
 	t_u1					type[3];
@@ -118,10 +95,8 @@ typedef struct				s_all
 	int						nb_checks;
 	int						num_param;
 	t_u1					whose[M_S];
-	int						dump_param;
 	int						dump_cycle;
 	int						last_alive;
-	int						count_init;
 	int						nb_processes;
 	int						nb_live_call;
 	int						cycle_to_die;

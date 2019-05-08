@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:58:44 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 15:08:45 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 16:16:17 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ int			ft_read(t_all *a, int fd, char **av)
 
 	j = -1;
 	i = 1;
-	if (a->num_param == 0 && a->dump_param == 1)
+	if (a->num_param == 0 && a->dump == 1)
 		i = 3;
-	else if (a->num_param != 0 && a->dump_param == 0)
+	else if (a->num_param != 0 && a->dump == 0)
 		i = 3;
-	else if (a->dump_param != 0 && a->dump_param == 1)
+	else if (a->dump != 0 && a->dump == 1)
 		i = 5;
 	while (++j < a->nb_pl)
 	{

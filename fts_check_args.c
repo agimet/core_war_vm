@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 14:49:53 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 14:39:36 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 16:15:39 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				ft_check_dump_param(t_all *a, char **av)
 		if (av[2])
 		{
 			a->dump_cycle = ft_atoi(av[2]);
-			a->dump_param = 1;
+			a->dump = 1;
 		}
 		else
 			return (ft_error("Missing dump cycle."));
@@ -109,7 +109,7 @@ int				ft_valid_args(t_all *a, char **av, int ac)
 	len = 0;
 	if (!ft_check_dump_param(a, av))
 		return (0);
-	a->dump_param == 1 ? (i += 2) : (0);
+	a->dump == 1 ? (i += 2) : (0);
 	while (i < ac)
 	{
 		if (!ft_check_num_players(a, av, &i))
@@ -126,5 +126,5 @@ int				ft_valid_args(t_all *a, char **av, int ac)
 		return (0);
 	if (a->num_param != 0 && a->nb_pl != a->num_param)
 		return (ft_error("Nb of -n param must be equal to nb players."));
-	return (1);
+	return (i);
 }

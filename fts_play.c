@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:05:38 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 14:47:09 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/08 16:15:49 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void			ft_lets_play(t_all *a)
 {
 	while (a->process != NULL && a->cycle_to_die >= 0)
 	{
-		if (a->dump_param == 1 && a->cycle == a->dump_cycle)
+		if (a->dump == 1 && a->cycle == a->dump_cycle)
 		{
 			ft_dump(a);
 			break ;
@@ -128,7 +128,7 @@ void			ft_lets_play(t_all *a)
 		if (a->before_cycle_to_die == a->cycle_to_die)
 			ft_check_alive_process(a);
 	}
-	if (a->dump_param == 0)
+	if (a->dump == 0)
 	{
 		if (a->last_alive == 0)
 		{
