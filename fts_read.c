@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:58:44 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/09 15:17:59 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 16:01:18 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ int			ft_read_each_part(t_all *a, int fd, int j, int part)
 
 int			ft_read_bis(t_all *a, int fd, int j)
 {
+	int total;
+
+	total = 0;
 	if (*(t_u4 *)a->pl[j].magic_nb != COREWAR_EXEC_MAGIC)
 		return (ft_error("Wrong magic number."));
 	if (!ft_read_each_part(a, fd, j, PROG_NAME_LENGTH))
@@ -88,6 +91,8 @@ int			ft_read_bis(t_all *a, int fd, int j)
 		return (ft_error("lseek padding 2 fail."));
 	if (!ft_read_each_part(a, fd, j, CHAMP_MAX_SIZE))
 		return (0);
+	if (read(fd, &total, 1) > 0)
+		return (ft_error("File's size too long."));
 	return (1);
 }
 
