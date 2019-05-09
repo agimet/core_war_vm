@@ -6,12 +6,12 @@
 #    By: agimet <agimet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/31 14:51:09 by agimet            #+#    #+#              #
-#    Updated: 2019/05/06 15:52:48 by agimet           ###   ########.fr        #
+#    Updated: 2019/05/09 15:26:34 by agimet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-EXEC = corewar
+NAME = corewar
 CC = gcc
 SRCS = main.c \
 		fts_read.c \
@@ -32,17 +32,16 @@ OBJ = $(SRCS:.c=.o)
 CFLAGS = -O3 -Wall -Wextra -Werror
 
 
-$(EXEC): $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
-all: $(EXEC)
-
+all: $(NAME)
 
 clean:
 	@rm -f *.o
 
 fclean: clean
-	@rm -f $(EXEC)
+	@rm -f $(NAME)
 
 re:	fclean all
 

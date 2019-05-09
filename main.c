@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 10:40:54 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 16:20:35 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 15:28:07 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_quiet_mode(t_all *a, int *ac, char **av)
 	return (1);
 }
 
-int			main(int ac, char **av) // quiet mode to set
+int			main(int ac, char **av)
 {
 	int		fd;
 	t_all	*a;

@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:15:58 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/09 13:39:07 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 15:27:51 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_confirm(int code, t_process *p)
 	return (1);
 }
 
-int		ft_test_code(int x, t_process *p) // A RETESTER COMPORTEMENT VM
+int		ft_test_code(int x, t_process *p)
 {
 	int encode;
 	int i;

@@ -6,13 +6,13 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:58:29 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 16:19:10 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 15:27:37 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void			ft_live(t_all *a, t_process *p, int val[3]) // A revoir les 4 if
+void			ft_live(t_all *a, t_process *p, int val[3])
 {
 	p->nb_live++;
 	a->nb_live_call++;
@@ -22,9 +22,8 @@ void			ft_live(t_all *a, t_process *p, int val[3]) // A revoir les 4 if
 		a->last_alive = (-1 * val[0]);
 		if (a->quiet == 0)
 		{
-			ft_putstr_fd("\nLe joueur ", 1);
+			ft_putstr_fd("\nThe player \"", 1);
 			ft_putnbr(a->last_alive);
-			ft_putstr_fd(" alias \"", 1);
 			if (a->pl[0].num_player == -1 * val[0])
 				ft_putstr_fd((char *)a->pl[0].name, 1);
 			if (a->pl[1].num_player == -1 * val[0])
@@ -33,7 +32,7 @@ void			ft_live(t_all *a, t_process *p, int val[3]) // A revoir les 4 if
 				ft_putstr_fd((char *)a->pl[2].name, 1);
 			if (a->pl[3].num_player == -1 * val[0])
 				ft_putstr_fd((char *)a->pl[3].name, 1);
-			ft_putstr_fd("\" est en vie\n", 1);
+			ft_putstr_fd("\" is alive !\n", 1);
 		}
 	}
 	p->pc = (p->pc + 5) % M_S;

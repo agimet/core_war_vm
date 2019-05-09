@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:58:44 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 16:16:17 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 15:17:59 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			ft_read_each_part(t_all *a, int fd, int j, int part)
 		if (part == CHAMP_MAX_SIZE && r == 0 && i < part
 			&& i == *(int*)a->pl[j].size_instru)
 			ok = 1;
-		if (r == -1 || (r == 0 && (i < part || i > part) && ok == 0))
+		if (r == -1 || (r == 0 && i < part && ok == 0))
 		{
 			part == PROG_NAME_LENGTH ? ft_putstr_fd("HEADER : ", 2) : (0);
 			part == COMMENT_LENGTH ? ft_putstr_fd("COMMENT : ", 2) : (0);
