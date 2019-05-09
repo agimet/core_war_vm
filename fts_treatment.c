@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:15:58 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 15:10:44 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:39:07 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,13 @@ int		ft_number_reg(t_all *a, t_process *p, int pos)
 	return (1);
 }
 
-void	ft_reinitialisation(t_all *a)
+void	ft_reinitialisation(t_all *a, int (*value)[3])
 {
 	a->encode = 0;
 	a->args = 0;
+	(*value)[0] = 0;
+	(*value)[1] = 0;
+	(*value)[2] = 0;
 	a->size[0] = 0;
 	a->size[1] = 0;
 	a->size[2] = 0;
@@ -75,10 +78,7 @@ void	ft_which_instru(t_all *a, t_process *p)
 	int pos;
 	int value[3];
 
-	value[0] = 0;
-	value[1] = 0;
-	value[2] = 0;
-	ft_reinitialisation(a);
+	ft_reinitialisation(a, &value);
 	pos = (g_op_tab[p->next_instruction].codage_octal == 1) ? 2 : 1;
 	if (g_op_tab[p->next_instruction].codage_octal == 1)
 		a->encode = a->ar[(p->pc + 1) % M_S];
@@ -97,4 +97,5 @@ void	ft_which_instru(t_all *a, t_process *p)
 		a->args++;
 	}
 	g_op_tab[p->next_instruction].instr(a, p, value);
+	p->cycle_before_exec = -1;
 }

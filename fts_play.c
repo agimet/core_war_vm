@@ -6,7 +6,7 @@
 /*   By: agimet <agimet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 15:05:38 by agimet            #+#    #+#             */
-/*   Updated: 2019/05/08 16:15:49 by agimet           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:41:30 by agimet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ void			ft_exec_instructions(t_all *a)
 			p->cycle_before_exec = g_op_tab[a->ar[(p->pc) % M_S]].nb_cycle - 1;
 			p->next_instruction = g_op_tab[a->ar[(p->pc) % M_S]].opcode;
 		}
-		else if (a->ar[(p->pc) % M_S] <= 0 || a->ar[(p->pc) % M_S] > 16)
-			p->pc = (p->cycle_before_exec == -1) ? ((p->pc + 1) % M_S) : p->pc; // MODIF A BIEN TESTER
+		else if ((a->ar[(p->pc) % M_S] <= 0 || a->ar[(p->pc) % M_S] > 16)
+			&& p->cycle_before_exec == -1)
+			p->pc = ((p->pc + 1) % M_S);
 		else if (p->cycle_before_exec == 0)
-		{
 			ft_which_instru(a, p);
-			p->cycle_before_exec = -1;
-		}
 		if (p->cycle_before_exec != -1)
 			p->cycle_before_exec--;
 		p = p->next;
