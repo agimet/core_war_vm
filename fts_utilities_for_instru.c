@@ -65,13 +65,14 @@ int					ft_real_player(int nb_pl, int value)
 	int				i;
 
 	i = 0;
+	nb_pl = 0;
 	if (value == -1)
 		return (1);
 	if (value == -2)
 		return (1);
-	if (value == -3 && nb_pl == 3)
+	if (value == -3)
 		return (1);
-	if (value == -4 && nb_pl == 4)
+	if (value == -4)
 		return (1);
 	return (0);
 }
