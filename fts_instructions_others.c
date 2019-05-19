@@ -19,7 +19,6 @@ void			ft_live(t_all *a, t_process *p, int val[3])
 	val[0] = ft_get_args(a->ar, p->pc + 1, 4);
 	if (ft_real_player(a->nb_pl, val[0]) && a->dump == 0)
 	{
-			ft_putstr_fd("cycle = ", 1);ft_putnbr(a->cycle);ft_putstr_fd("\n", 1);
 		a->last_alive = (-1 * val[0]);
 		if (a->quiet == 0)
 		{
