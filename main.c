@@ -53,7 +53,7 @@ int			main(int ac, char **av)
 		return (ft_prototype(0));
 	ft_init_struct(&a);
 	if (a == NULL)
-		(ft_error("Malloc NULL."));
+		return (ft_error("Malloc NULL."));
 	if (!ft_quiet_mode(a, &ac, av))
 		return (ft_free_all(a));
 	if (!ft_valid_args(a, av, ac))
