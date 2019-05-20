@@ -19,9 +19,6 @@
 # include "op.h"
 
 # define HEXA "0123456789abcdef"
-# define ADDR 2
-# define DIRECT 4
-# define TEST "FF1"
 
 # define R 64
 
