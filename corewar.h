@@ -13,11 +13,6 @@
 #ifndef COREWAR_H
 # define COREWAR_H
 
-// # include <stdint.h>
-# include <math.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
