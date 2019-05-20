@@ -79,6 +79,7 @@ int					ft_real_player(int nb_pl, int value)
 
 void				ft_winner(t_all *a)
 {
+	ft_putstr_fd("\"", 1);
 	if (a->pl[0].num_player == a->last_alive)
 		ft_putstr_fd((char *)a->pl[0].name, 1);
 	if (a->pl[1].num_player == a->last_alive)
@@ -87,4 +88,5 @@ void				ft_winner(t_all *a)
 		ft_putstr_fd((char *)a->pl[2].name, 1);
 	if (a->pl[3].num_player == a->last_alive)
 		ft_putstr_fd((char *)a->pl[3].name, 1);
+	ft_putstr_fd("\"", 1);
 }

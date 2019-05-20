@@ -136,6 +136,6 @@ void			ft_lets_play(t_all *a)
 		ft_putstr_fd("Champion ", 1);
 		ft_putnbr(a->last_alive);
 		ft_winner(a);
-		ft_putstr_fd(" has won !\n", 1);
+		ft_putstr_fd(", has won !\n", 1);
 	}
 }
